@@ -83,7 +83,7 @@ class QuestionIndexDetailTests(TestCase):
 		should display the question's text.
 		"""
 		past_question = create_question(question_text='Past Question.',days=-5)
-		response = self.client.get(reverse('polls:detail',args(past_question.id,)))
+		response = self.client.get(reverse('polls:detail',args=(past_question.id,)))
 		self.assertContains(response,past_question.question_text,status_code=200)
 
 class QuestionMethodTests(TestCase):
